@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class UtAudioPlay : MonoBehaviour
 {
-    public static void SFXoneShot(GoAudioEvent audioEvent)
+    public static void SFXoneShot(GoAudioData audioData)
     {
-        SoAudioAssetSFX audioAsset = audioEvent.audioAsset;
-        AudioSource audioSource = audioEvent.audioSource;
+        SoAudioAssetSFX audioAsset = audioData.audioAsset;
+        AudioSource audioSource = audioData.audioSource;
 
         int audioTracksN;
         int audioClipsN;
