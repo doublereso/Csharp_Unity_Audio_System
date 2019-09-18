@@ -10,28 +10,31 @@ using UnityEngine.UI;
 public class GoAudioEvent : MonoBehaviour
 {
     public SoAudioAssetSFX audioAsset;
-    private AudioSource audioSource;
-
+    public AudioSource audioSource;
+    /*
     private int audioTracksN;
     private int audioClipsN;
+    */
 
     public void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         UpdateComponent();
+        /*
         audioTracksN = audioAsset.audioTracks.Length;
         Debug.Log("Total amount of Tracks: " + audioTracksN);
-
+        */
 #if UNITY_EDITOR
         InvokeRepeating("UpdateComponent", 1.0f, 1.0f);
 #endif
     }
-
+    /*
     public void Update()
     {
         
         if (Input.GetKeyDown("x"))
         {
+
             for (var i = 0; i < audioTracksN; i++)
             {
                 audioClipsN = audioAsset.audioTracks[i].clips.Length -1;
@@ -54,14 +57,16 @@ public class GoAudioEvent : MonoBehaviour
                 audioAsset.audioTracks[i].indexClipLastPlayed = audioAsset.audioTracks[i].indexClipToPlay;
 
             }
+            /
         }
     }
-
+    
     IEnumerator PlayClip (int i)
     {
         yield return new WaitForSeconds(audioAsset.audioTracks[i].delaySec);
         audioSource.PlayOneShot(audioAsset.audioTracks[i].clips[audioAsset.audioTracks[i].indexClipToPlay]);
     }
+    */
     private void UpdateComponent()
     {
         audioSource.outputAudioMixerGroup = audioAsset.mixerGroup;
